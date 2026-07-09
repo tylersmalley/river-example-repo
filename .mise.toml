@@ -5,7 +5,7 @@ go = "1.26.4"
 description = "Install dependencies"
 run = "go mod tidy"
 
-[tasks.run]
+[tasks.dev]
 description = "Run the hello world program"
 run = "go run ./cmd/hello"
 
