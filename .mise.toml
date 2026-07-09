@@ -1,0 +1,23 @@
+[tools]
+go = "1.26.4"
+
+[tasks.setup]
+description = "Install dependencies"
+run = "go mod tidy"
+
+[tasks.run]
+description = "Run the hello world program"
+run = "go run ./cmd/hello"
+
+[tasks.build]
+description = "Build the hello world binary"
+run = "go build -o bin/hello ./cmd/hello"
+
+[tasks.test]
+description = "Run tests"
+run = "go test ./..."
+
+[tasks.check]
+description = "Run all checks"
+depends = ["test"]
+run = "gofmt -l . | (! grep .) && go vet ./..."
