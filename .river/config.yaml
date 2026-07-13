@@ -1,0 +1,5 @@
+services:
+  hello:
+    start: mise run serve
+    port: 8080
+    ready: curl -sf http://localhost:8080/

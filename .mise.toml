@@ -9,6 +9,10 @@ run = "go mod tidy"
 description = "Run the hello world program"
 run = "go run ./cmd/hello"
 
+[tasks.serve]
+description = "Run the hello world HTTP server"
+run = "go run ./cmd/serve"
+
 [tasks.build]
 description = "Build the hello world binary"
 run = "go build -o bin/hello ./cmd/hello"
