@@ -7,9 +7,14 @@ import (
 )
 
 func main() {
-	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
+	log.Println("listening on :8080")
+	log.Fatal(http.ListenAndServe(":8080", handler()))
+}
+
+func handler() http.Handler {
+	mux := http.NewServeMux()
+	mux.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
 		fmt.Fprintln(w, "Hello, River!")
 	})
-	log.Println("listening on :8080")
-	log.Fatal(http.ListenAndServe(":8080", nil))
+	return mux
 }
